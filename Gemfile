@@ -7,6 +7,8 @@ gem 'devise'
 
 gem 'cancancan'
 
+gem 'bullet', group: :development
+
 gem "pg"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
