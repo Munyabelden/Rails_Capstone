@@ -1,13 +1,16 @@
 class FoodsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
-    @user = current_user
-    @foods = current_user.foods
+    @foods = Food.all
+  end
+
+  def show
+    @food = Food.find(params[:id])
   end
 
   def new
-    @user = current_user
+    # @user = current_user
     @food = Food.new
   end
   
@@ -15,7 +18,7 @@ class FoodsController < ApplicationController
     @food = current_user.foods.new(food_params)
 
     if @food.save
-      redirect_to foods_path, notice: 'Your Food is created successfully!'
+      redirect_to user_foods_path, notice: 'Your Food is created successfully!'
     else
       flash[:alert] = 'Something went wrong, Try again!'
       render :new
