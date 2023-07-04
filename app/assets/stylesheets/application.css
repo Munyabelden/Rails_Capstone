@@ -93,3 +93,134 @@ tr:nth-child(even) {
   margin-bottom: 30px;
   width: 50%;
 }
+
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #432e34;
+}
+
+body {
+  background: #faf4f7;
+}
+
+.user-recipes {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 10%;
+}
+
+.title {
+  font-size: 24px;
+  color: #190b12;
+}
+
+.recipe-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.recipe {
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  background: #f2eae8;
+  color: #2d2724;
+  border-radius: 10px;
+  width: 100%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.recipe .describe {
+  width: 65%;
+}
+
+.delete-button {
+  z-index: 1000;
+}
+
+.create-button,
+.delete-button {
+  border: none;
+  background: transparent;
+  padding: 7px 12px;
+  color: #432e34;
+  border-bottom: 1.5px solid #432e34;
+  width: fit-content;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+}
+
+.create-button {
+  margin-block: 30px;
+}
+
+.create-button:hover,
+.delete-button:hover {
+  background: #432e34;
+  color: #faf4f7;
+}
+
+.create {
+  background: #432e34;
+  color: #faf4f7;
+  padding: 7px 12px;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.new-recipe {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.input-column {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #432e34;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+textarea {
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #432e34;
+  height: 70px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px; 
+}

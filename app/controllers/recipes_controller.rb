@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
   end
 
   def public
-    @public_recipes = Recipe.where(public: true).order(created_at: :desc)
+    @public_recipes = Recipe.includes(:user_id).where(public: true).order(created_at: :desc)
   end
 
   def show
