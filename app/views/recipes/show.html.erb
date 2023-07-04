@@ -1,7 +1,29 @@
-<h1><%= @current_user.name %> Recipes</h1>
-
 <div>
-  <%@recipes.each do |recipe|%>
-    
-  <%end%>
+  <h2><%= @recipe.name %></h2>
+  <span>Cooking time: <%= @recipe.cooking_time %></span>
+  <% if current_user == @recipe.user %>
+    <%= form_with(model: @recipe, url: recipe_path(@recipe, public: true), method: :patch) do |f| %>
+      <%= f.submit 'Make Public' %>
+    <% end %>
+  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= food.price %></td>
+          <td><%= food.user.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

@@ -1,14 +1,42 @@
 class RecipesController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_user!
   before_action :set_recipe, only: [:show, :destroy]
-  
+
   def index
+    @current_user = current_user
+    @recipes = current_user.recipes
+  end
+  
+  def public
     @public_recipes = Recipe.where(public: true).order(created_at: :desc)
   end  
 
   def show
-    @current_user = current_user
-    @recipes = current_user.recipes
+    @recipe = Recipe.find(params[:id])
+    @foods = @recipe.foods
+  end
+
+  def new
+    @recipe = Recipe.includes(:user).new
+  end
+
+  def publicize
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(public: true)
+      redirect_to @recipe, notice: 'Recipe is now public.'
+    else
+      redirect_to @recipe, alert: 'Failed to update recipe.'
+    end
+  end
+
+  def create
+    @recipe = Recipe.create(recipe_params.merge(user_id: current_user.id))
+    if @recipe.save
+      redirect_to recipes_path, notice: 'New recipe was successfully created.'
+    else
+      render :new, alert: 'Error creating new recipe.'
+    end
   end
 
   def destroy
@@ -24,6 +52,10 @@ class RecipesController < ApplicationController
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
+  end
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
   end
 end
   
