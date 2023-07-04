@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'foods/index'
-  get 'foods/show'
-  get 'foods/new'
+  resources :foods
   devise_for :users
-  resources :recipes, only: [:index, :show, :new, :create, :destroy] do
-    patch 'publicize', on: :member
+  resources :recipes
+  devise_scope :user do
+    get '/users/sign_out', to: 'devise/sessions#destroy'
   end
-    
+  root "foods#index"
 end
