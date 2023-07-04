@@ -1,8 +1,9 @@
 <div>
   <h2><%= @recipe.name %></h2>
-  <span>Cooking time: <%= @recipe.cooking_time %></span>
+  <span>Preparation time: <%= format_time(@recipe.preparation_time) %></span>
+  <span>Cooking time: <%= format_time(@recipe.cooking_time) %></span>
   <% if current_user == @recipe.user %>
-    <%= form_with(model: @recipe, url: recipe_path(@recipe, public: true), method: :patch) do |f| %>
+    <%= form_with(model: @recipe, url: publicize_recipe_path(@recipe), method: :patch) do |f| %>
       <%= f.submit 'Make Public' %>
     <% end %>
   <% end %>

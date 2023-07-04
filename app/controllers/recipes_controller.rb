@@ -23,12 +23,13 @@ class RecipesController < ApplicationController
 
   def publicize
     @recipe = Recipe.find(params[:id])
-    if @recipe.update(public: true)
-      redirect_to @recipe, notice: 'Recipe is now public.'
+    @recipe.public = !@recipe.public
+    if @recipe.save
+      redirect_to @recipe, notice: 'Recipe public status has been updated.'
     else
       redirect_to @recipe, alert: 'Failed to update recipe.'
     end
-  end
+  end  
 
   def create
     @recipe = Recipe.create(recipe_params.merge(user_id: current_user.id))

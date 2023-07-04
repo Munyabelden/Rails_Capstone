@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :recipes, only: [:index, :show, :new, :create, :destroy] do
-    post 'publicize', on: :member
+    patch 'publicize', on: :member
   end
     
 end
