@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 .food-table {
   margin-top: 20px;
 }
@@ -21,7 +20,7 @@
   color: rgb(0, 0, 0);
   text-decoration: none;
   border: 2px solid black;
-  box-shadow: 6px 6px 2px 0px black;
+  box-shadow: 6px 6px 2px 1px black;
 }
 
 .table-container {
