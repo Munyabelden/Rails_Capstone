@@ -7,4 +7,3 @@ class Food < ApplicationRecord
   validates :name, presence: true
   validates :price, format: { with: /\A\$?\d+(\.\d{1,2})?\z/, message: 'must be a valid price format' }
 end
-  

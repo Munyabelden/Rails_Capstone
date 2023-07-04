@@ -1,16 +1,16 @@
 class RecipesController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!
-  before_action :set_recipe, only: [:show, :destroy]
+  before_action :set_recipe, only: %i[show destroy]
 
   def index
     @current_user = current_user
     @recipes = current_user.recipes
   end
-  
+
   def public
     @public_recipes = Recipe.where(public: true).order(created_at: :desc)
-  end  
+  end
 
   def show
     @recipe = Recipe.find(params[:id])
@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
     else
       redirect_to @recipe, alert: 'Failed to update recipe.'
     end
-  end  
+  end
 
   def create
     @recipe = Recipe.create(recipe_params.merge(user_id: current_user.id))
@@ -59,4 +59,3 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
   end
 end
-  
