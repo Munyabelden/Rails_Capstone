@@ -1,4 +1,99 @@
 * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.food-table {
+  margin-top: 20px;
+}
+
+.add-food {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.add-food-link {
+  margin-top: 10px;
+  padding: 6px 12px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border: 2px solid black;
+  box-shadow: 6px 6px 2px 1px black;
+}
+
+.table-container {
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 100%;
+  margin: 1rem auto;
+  background-color: #fff;
+  border-radius: 0.25rem;
+}
+
+.table-header {
+  background-color: #646464;
+}
+
+.table-cell {
+  border: 2px solid black;
+  padding: 0.75rem;
+}
+
+.delete-button {
+  color: rgba(0, 0, 255, 0.711);
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.delete-button:hover {
+  color: #dc3545;
+  transition: all 0.2s;
+}
+
+tr:nth-child(even) {
+  background: rgb(199, 199, 199);
+}
+
+.add-food-title {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.new-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  width: 30em;
+  margin: 50px auto;
+}
+
+.form-group {
+  margin-top: 20px;
+  width: 24em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.button {
+  border-radius: 5px;
+  background-color: rgb(61, 61, 61);
+  border: 0;
+  color: white;
+  height: 20px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  width: 50%;
+}
+
   font-family: sans-serif;
 }
 
@@ -129,5 +224,3 @@ textarea {
   -ms-border-radius: 8px;
   -o-border-radius: 8px; 
 }
-
-

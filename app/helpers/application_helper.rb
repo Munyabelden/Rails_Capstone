@@ -4,4 +4,3 @@ module ApplicationHelper
     "#{hours.to_i} hours #{minutes.to_i} minutes"
   end
 end
-  
