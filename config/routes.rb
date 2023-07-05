@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   root 'recipes#index'
   
-  resources :foods, only: [:new, :create]
+  resources :foods, only: [:index, :new, :create]
   
   resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     patch 'publicize', on: :member
