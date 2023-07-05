@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :foods, only: [:new, :create]
     resources :recipe_foods, only: [:new, :create]
   end
-  get 'recipes/public', to: 'recipes#public', as: 'public_recipes'
+  
+  resources  :public, only: [:index]
 
 end

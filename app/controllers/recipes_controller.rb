@@ -8,10 +8,6 @@ class RecipesController < ApplicationController
     @recipes = current_user.recipes
   end
 
-  def public
-    @public_recipes = Recipe.includes(:user_id).where(public: true).order(created_at: :desc)
-  end
-
   def show
     @recipe = Recipe.find(params[:id])
     @foods = @recipe.foods
@@ -52,8 +48,12 @@ class RecipesController < ApplicationController
   private
 
   def set_recipe
-    @recipe = Recipe.find(params[:id])
-  end
+    if params[:id] == 'public'
+      @recipe = nil
+    else
+      @recipe = Recipe.find(params[:id])
+    end
+  end  
 
   def recipe_params
     params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
