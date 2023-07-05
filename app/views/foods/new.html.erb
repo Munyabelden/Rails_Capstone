@@ -1,6 +1,7 @@
 <h2 class= "add-food-title">Add Food</h2 class= "add-food-title">
 
 <%= form_with model: @food, url: foods_path do |form| %>
+
   <% if @food.errors.any? %>
     <div class="alert alert-danger">
       <ul>

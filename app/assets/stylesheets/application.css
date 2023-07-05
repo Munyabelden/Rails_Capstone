@@ -2,6 +2,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+li {
+  list-style: none;
 }
 
 .food-table {
@@ -94,9 +99,6 @@ tr:nth-child(even) {
   width: 50%;
 }
 
-  font-family: sans-serif;
-}
-
 a {
   text-decoration: none;
   color: #432e34;
@@ -106,15 +108,19 @@ body {
   background: #faf4f7;
 }
 
-.user-recipes {
+.user-recipes,
+.recipe-details {
   display: flex;
   flex-direction: column;
-  margin-inline: 10%;
+  margin-inline: 15%;
 }
 
-.title {
+.title,
+.recipe-name {
+  text-align: center;
   font-size: 24px;
   color: #190b12;
+  margin-block: 30px;
 }
 
 .recipe-list {
@@ -143,10 +149,6 @@ body {
   width: 65%;
 }
 
-.delete-button {
-  z-index: 1000;
-}
-
 .create-button,
 .delete-button {
   border: none;
@@ -155,6 +157,7 @@ body {
   color: #432e34;
   border-bottom: 1.5px solid #432e34;
   width: fit-content;
+  margin-top: 20px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -165,10 +168,6 @@ body {
   -moz-transition: all 300ms ease-in-out;
   -ms-transition: all 300ms ease-in-out;
   -o-transition: all 300ms ease-in-out;
-}
-
-.create-button {
-  margin-block: 30px;
 }
 
 .create-button:hover,
@@ -200,7 +199,8 @@ body {
   flex-direction: column;
 }
 
-input {
+input,
+select {
   width: 250px;
   padding: 10px;
   margin-bottom: 20px;
@@ -223,4 +223,60 @@ textarea {
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
   -o-border-radius: 8px; 
+}
+
+.recipe-details span {
+  margin-block: 10px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.add-food,
+.publicize {
+  position: relative;
+  text-align: end;
+  justify-content: flex-end;
+  align-self: flex-end;
+  border: 1.75px solid #2d2724;
+  border-radius: 3px;
+  width: fit-content;
+  cursor: pointer;
+  padding: 8px 14px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.publicize {
+  position: absolute;
+  left: 75%;
+  margin-top: -100px;
+}
+
+.food-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.food-table th,
+.food-table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.food-table th {
+  background-color: #f2f2f2;
+}
+
+.food-table tr.even-row {
+  background-color: #8d7e66;
+  color: white;
+}
+
+.link {
+  position: relative;
+  left: 40%;
+  text-align: center;
 }
