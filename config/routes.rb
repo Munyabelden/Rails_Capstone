@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'general_shopping_lists/index'
   devise_for :users
   devise_scope :user do
     get '/users/sign_out', to: 'devise/sessions#destroy'
