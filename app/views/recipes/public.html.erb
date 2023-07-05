@@ -1,10 +1,15 @@
 <h1>Public Recipes</h1>
+
 <ul>
   <% @public_recipes.each do |recipe| %>
-    <li class="recipe">
+    <li>
       <h2><%= recipe.name%></h2>
       <span><%= recipe.user.name %></span>
-      <p><%= recipe.recipe_food.quantity %></p>
+      <ul>
+        <% recipe.recipe_foods.each do |recipe_food| %>
+          <li><%= recipe_food.food.name %> - <%= recipe_food.quantity %></li>
+        <% end %>
+      </ul>
     </li>
-  <%end%>
+  <% end %>
 </ul>
