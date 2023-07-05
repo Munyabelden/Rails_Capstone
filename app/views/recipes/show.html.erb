@@ -23,7 +23,13 @@
           <td><%= food.name %></td>
           <td><%= food.measurement_unit %></td>
           <td>$<%= food.price %></td>
-          <td><%= food.user.name %></td>
+          <td>
+            <% if can? :destroy, food %>
+              <%= button_to recipe_recipe_foods_path(@recipe, food), method: :delete, class: 'delete-button', data: { confirm: 'Are you sure you want to remove this food item?' } do %>
+                Remove
+              <% end %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

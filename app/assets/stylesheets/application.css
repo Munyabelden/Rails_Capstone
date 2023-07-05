@@ -91,7 +91,7 @@ tr:nth-child(even) {
   background-color: rgb(61, 61, 61);
   border: 0;
   color: white;
-  height: 20px;
+  height: 40px;
   text-align: center;
   font-weight: 600;
   margin-top: 20px;
@@ -279,4 +279,18 @@ textarea {
   position: relative;
   left: 40%;
   text-align: center;
+}
+
+.shop-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+}
+
+.shop-hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 3rem;
 }
