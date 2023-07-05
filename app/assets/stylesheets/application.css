@@ -78,12 +78,12 @@ tr:nth-child(even) {
 }
 
 .form-group {
-  margin-top: 20px;
+  margin-top: 5px;
   width: 24em;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  padding: 5px;
+  padding: 1px;
 }
 
 .button {
@@ -94,7 +94,6 @@ tr:nth-child(even) {
   height: 40px;
   text-align: center;
   font-weight: 600;
-  margin-top: 20px;
   margin-bottom: 30px;
   width: 50%;
 }
@@ -231,7 +230,6 @@ textarea {
   font-size: 18px;
 }
 
-.add-food,
 .publicize {
   position: relative;
   text-align: end;
@@ -252,28 +250,6 @@ textarea {
   position: absolute;
   left: 75%;
   margin-top: -100px;
-}
-
-.food-table th,
-.food-table td {
-  padding: 8px;
-  text-align: left;
-  border: 1px solid #ddd;
-}
-
-.food-table th {
-  background-color: #f2f2f2;
-}
-
-.food-table tr.even-row {
-  background-color: #8d7e66;
-  color: white;
-}
-
-.link {
-  position: relative;
-  left: 40%;
-  text-align: center;
 }
 
 .shop-container {
