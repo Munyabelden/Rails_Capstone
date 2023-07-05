@@ -222,7 +222,7 @@ textarea {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -ms-border-radius: 8px;
-  -o-border-radius: 8px; 
+  -o-border-radius: 8px;
 }
 
 .recipe-details span {
@@ -252,11 +252,6 @@ textarea {
   position: absolute;
   left: 75%;
   margin-top: -100px;
-}
-
-.food-table {
-  width: 100%;
-  border-collapse: collapse;
 }
 
 .food-table th,
