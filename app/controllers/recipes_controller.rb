@@ -48,12 +48,12 @@ class RecipesController < ApplicationController
   private
 
   def set_recipe
-    if params[:id] == 'public'
-      @recipe = nil
-    else
-      @recipe = Recipe.find(params[:id])
-    end
-  end  
+    @recipe = if params[:id] == 'public'
+                nil
+              else
+                Recipe.find(params[:id])
+              end
+  end
 
   def recipe_params
     params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)

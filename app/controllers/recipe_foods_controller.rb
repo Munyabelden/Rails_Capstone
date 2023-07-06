@@ -38,4 +38,3 @@ class RecipeFoodsController < ApplicationController
     params.require(:recipe_food).permit(:quantity, :food_id)
   end
 end
-  

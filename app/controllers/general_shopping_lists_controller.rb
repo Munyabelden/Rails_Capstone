@@ -7,7 +7,7 @@ class GeneralShoppingListsController < ApplicationController
     @food_counts = @food.count
     @food_prices = @food.sum(:price)
   end
-  
+
 
   private
 
