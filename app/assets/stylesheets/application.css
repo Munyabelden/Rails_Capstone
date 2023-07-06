@@ -148,6 +148,12 @@ body {
   width: 65%;
 }
 
+.create-button:hover,
+.delete-button:hover {
+  background: #432e34;
+  color: #faf4f7;
+}
+
 .create-button,
 .delete-button {
   border: none;
@@ -167,12 +173,6 @@ body {
   -moz-transition: all 300ms ease-in-out;
   -ms-transition: all 300ms ease-in-out;
   -o-transition: all 300ms ease-in-out;
-}
-
-.create-button:hover,
-.delete-button:hover {
-  background: #432e34;
-  color: #faf4f7;
 }
 
 .create {
@@ -203,7 +203,7 @@ select {
   width: 250px;
   padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid #432e34;
+  border: 1px solid rgb(67, 46, 52);
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -215,7 +215,7 @@ textarea {
   width: 250px;
   padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid #432e34;
+  border: 1px solid rgb(67, 46, 52);
   height: 70px;
   border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -231,11 +231,13 @@ textarea {
 }
 
 .publicize {
-  position: relative;
+  position: absolute;
+  left: 70%;
+  margin-top: -100px;
   text-align: end;
   justify-content: flex-end;
   align-self: flex-end;
-  border: 1.75px solid #2d2724;
+  border: 1.75px solid rgb(45, 39, 36);
   border-radius: 3px;
   width: fit-content;
   cursor: pointer;
@@ -244,12 +246,6 @@ textarea {
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
-}
-
-.publicize {
-  position: absolute;
-  left: 70%;
-  margin-top: -100px;
 }
 
 .shop-container {
@@ -272,11 +268,11 @@ textarea {
 }
 
 .food-table tr:nth-child(even) {
-  background: #646464;
+  background: rgb(100, 100, 100);
 }
 
 .food-table tr:nth-child(odd) {
-  background: #ffffff;
+  background: rgb(255, 255, 255);
 }
 
 .show-button {
