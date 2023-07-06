@@ -248,7 +248,7 @@ textarea {
 
 .publicize {
   position: absolute;
-  left: 75%;
+  left: 70%;
   margin-top: -100px;
 }
 
@@ -277,4 +277,25 @@ textarea {
 
 .food-table tr:nth-child(odd) {
   background: #ffffff;
+}
+
+.show-button {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 10px;
+}
+
+.food-button,
+.generate-food {
+  border: 1.5px solid #432e34;
+  width: fit-content;
+  padding: 8px 13px;
+  cursor: pointer;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }

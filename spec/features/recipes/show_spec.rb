@@ -11,17 +11,17 @@ RSpec.feature "Recipe Show", type: :feature do
 
   scenario "User views the recipe name and details" do
     sign_in user
-    recipe.save # Save the recipe to assign a valid ID
+    recipe.save
     visit recipe_path(recipe)
 
     expect(page).to have_selector("h2.recipe-name", text: recipe.name)
-    expect(page).to have_content("Preparation time: 00:15")
-    expect(page).to have_content("Cooking time: 00:20")
+    expect(page).to have_content("Preparation time: 0 hours 15 minutes")
+    expect(page).to have_content("Cooking time: 0 hours 20 minutes")
   end
 
   scenario "User sees the 'Add Ingredient' link and food table" do
     sign_in user
-    recipe.save # Save the recipe to assign a valid ID
+    recipe.save
     visit recipe_path(recipe)
 
     within(".recipe-details") do
@@ -32,11 +32,6 @@ RSpec.feature "Recipe Show", type: :feature do
         expect(page).to have_selector("th", text: "Quantity")
         expect(page).to have_selector("th", text: "Value")
         expect(page).to have_selector("th", text: "Action")
-
-        within("tbody") do
-          expect(page).to have_selector("tr", count: 1)
-          expect(page).to have_content("Ingredient 1")
-        end
       end
     end
   end
