@@ -1,37 +1,36 @@
 require 'rails_helper'
+require 'capybara/rails'
 
-RSpec.feature 'Foods new', type: :feature do
-  let(:user) { FactoryBot.create(:user) }
+RSpec.feature "Recipe Show", type: :feature do
+  include Devise::Test::IntegrationHelpers
 
-  before do
-    ActionMailer::Base.deliveries.clear
-    user.confirmation_token = Devise.token_generator.generate(User, :confirmation_token)
-    user.confirmed_at = Time.current
-    user.save
+  let!(:user) { User.create(name: "John Doe") }
+  let!(:food) { Food.create(name: "Ingredient 1") }
+  let!(:recipe) { Recipe.create(name: "Pasta Carbonara", preparation_time: "00:15", cooking_time: "00:20", description: "A delicious pasta dish.", user: user) }
+  let!(:recipe_food) { RecipeFood.create(recipe: recipe, food: food) }
+
+  scenario "User views the recipe name and details" do
     sign_in user
-    visit new_food_path
+    visit recipe_path(recipe)
+
+    expect(page).to have_css("h2.recipe-name", text: recipe.name)
+    expect(page).to have_content("Preparation time: 0 hours 15 minutes")
+    expect(page).to have_content("Cooking time: 0 hours 20 minutes")
   end
 
-  scenario 'loads add new food page' do
-    expect(page).to have_content 'New Food Item'
-    expect(page).to have_content 'Name'
-    expect(page).to have_content 'Measurement unit'
-    expect(page).to have_content 'Price'
-    expect(page).to have_content 'Quantity'
-    expect(page).to have_link 'Cancel'
-  end
+  scenario "User sees the 'Add Ingredient' link and food table" do
+    sign_in user
+    visit recipe_path(recipe)
 
-  scenario 'user can cancel' do
-    click_on 'Cancel'
-    expect(page).to have_current_path(foods_path)
-  end
+    within(".recipe-details") do
+      expect(page).to have_link("Add Ingredient", href: new_recipe_recipe_food_path(recipe_id: recipe.id))
 
-  scenario 'allows user to add a food' do
-    fill_in 'Name', with: 'Fahim Khan'
-    fill_in 'Measurement unit', with: 'Pound'
-    fill_in 'Price', with: 100.00
-    fill_in 'Quantity', with: 100
-    click_on 'Save Food'
-    expect(page).to have_content 'Fahim Khan'
+      within(".food-table") do
+        expect(page).to have_css("th", text: "Food")
+        expect(page).to have_css("th", text: "Quantity")
+        expect(page).to have_css("th", text: "Value")
+        expect(page).to have_css("th", text: "Action")
+      end
+    end
   end
 end
