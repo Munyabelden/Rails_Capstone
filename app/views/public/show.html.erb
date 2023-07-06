@@ -2,19 +2,12 @@
   <h2 class="recipe-name"><%= @recipe.name %></h2>
   <span>Preparation time: <%= format_time(@recipe.preparation_time) %></span>
   <span>Cooking time: <%= format_time(@recipe.cooking_time) %></span>
-  <% if current_user == @recipe.user %>
-    <%= form_with(model: @recipe, url: publicize_recipe_path(@recipe), method: :patch) do |f| %>
-      <%= f.submit 'Make Public', class: "publicize" %>
-    <% end %>
-  <% end %>
-  <%= link_to "Add Ingredient", new_recipe_recipe_food_path(recipe_id: @recipe.id), class: "add-food" %>
   <table class="food-table">
     <thead>
       <tr>
         <th>Food</th>
         <th>Quantity</th>
         <th>Value</th>
-        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -23,7 +16,6 @@
           <td><%= food.food.name %></td>
           <td><%= food.food.measurement_unit %></td>
           <td>$<%= food.food.price %></td>
-          <td><%= button_to "Remove", recipe_recipe_food_path(@recipe, food), method: :delete, class: "delete-button" %></td>
         </tr>
       <% end %>
     </tbody>

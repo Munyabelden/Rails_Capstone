@@ -11,10 +11,10 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     patch 'publicize', on: :member
     resources :foods, only: [:new, :create]
-    resources :recipe_foods, only: [:new, :create]
+    resources :recipe_foods, only: [:new, :create, :destroy]
   end
   
-  resources  :public, only: [:index]
+  resources  :public, only: [:index, :show]
   get '/general_shopping_list', to: 'shoppinglists#index'
 
 end

@@ -265,3 +265,16 @@ textarea {
   justify-content: space-between;
   padding: 0 3rem;
 }
+
+.food-table tr td,
+.food-table tr th {
+  padding: 9px;
+}
+
+.food-table tr:nth-child(even) {
+  background: #646464;
+}
+
+.food-table tr:nth-child(odd) {
+  background: #ffffff;
+}

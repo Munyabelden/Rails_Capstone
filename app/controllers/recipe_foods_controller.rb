@@ -24,6 +24,16 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe_food = RecipeFood.includes(:recipe).find_by(id: params[:id])
+
+    if @recipe_food.destroy
+      redirect_to recipe_path(id: params[:recipe_id]), notice: 'The ingedrient was successfully removed.'
+    else
+      redirect_to recipe_path(id: params[:recipe_id]), notice: 'Error in removing the ingredient.'
+    end
+  end
+
   def recipe_food_params
     params.require(:recipe_food).permit(:quantity, :food_id)
   end
