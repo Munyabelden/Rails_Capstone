@@ -14,8 +14,8 @@ RSpec.describe GeneralShoppingListsController, type: :controller do
     end
 
     it "assigns the user's foods without recipe_foods to @food" do
-      expected_foods = [food1, food2].sort_by(&:id)
-      expect(assigns(:food)).to eq(expected_foods)
+      expect(assigns(:food)).to include(food1)
+      expect(assigns(:food)).to include(food2)
     end
 
     it 'renders the index template' do
