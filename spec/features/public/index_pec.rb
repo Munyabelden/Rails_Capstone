@@ -1,5 +1,3 @@
-
-
 require 'rails_helper'
 
 RSpec.feature 'Public Recipes', type: :feature do
@@ -9,7 +7,7 @@ RSpec.feature 'Public Recipes', type: :feature do
   end
 
   scenario 'User views the list of public recipes' do
-    visit '/public_recipes' 
+    visit '/public_recipes'
 
     within('.user-recipes') do
       expect(page).to have_selector('h1.title', text: 'Public Recipes')
@@ -23,7 +21,8 @@ RSpec.feature 'Public Recipes', type: :feature do
 
           expect(page).to have_selector('a', href: public_path(recipe))
           expect(page).to have_selector('p', text: "Total food items: #{recipe.recipe_foods.count}")
-          expect(page).to have_selector('p', text: "Total Price: $#{RecipeFood.where(recipe_id: recipe.id).joins(:food).sum('recipe_foods.quantity * foods.price')}")
+          expect(page).to have_selector('p',
+                                        text: "Total Price: $#{RecipeFood.where(recipe_id: recipe.id).joins(:food).sum('recipe_foods.quantity * foods.price')}")
         end
       end
     end
