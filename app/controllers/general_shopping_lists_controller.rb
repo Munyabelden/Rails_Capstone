@@ -8,7 +8,6 @@ class GeneralShoppingListsController < ApplicationController
     @food_prices = @food.sum(:price)
   end
 
-
   private
 
   def find_user
