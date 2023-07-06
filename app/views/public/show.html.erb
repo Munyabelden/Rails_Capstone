@@ -1,0 +1,23 @@
+<div class="recipe-details">
+  <h2 class="recipe-name"><%= @recipe.name %></h2>
+  <span>Preparation time: <%= format_time(@recipe.preparation_time) %></span>
+  <span>Cooking time: <%= format_time(@recipe.cooking_time) %></span>
+  <table class="food-table">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe_foods.each.with_index do |food, index| %>
+        <tr class="<%= index.even? ? 'even-row' : '' %>">
+          <td><%= food.food.name %></td>
+          <td><%= food.food.measurement_unit %></td>
+          <td>$<%= food.food.price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

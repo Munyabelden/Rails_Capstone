@@ -1,0 +1,27 @@
+<section class="new-recipe">
+  <h1 class="title">Create a new recipe</h1>
+
+  <%= form_with(model: @recipe, url: recipes_path, method: :post) do |f| %>
+    <div class="input-column">
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: "Enter recipe name", required: true %>
+    </div>
+
+    <div class="input-column">
+      <%= f.label :cooking_time %>
+      <%= f.text_field :cooking_time, placeholder: "HH:MM (e.g., 01:30)", required: true%>
+    </div>
+
+    <div class="input-column">
+      <%= f.label :preparation_time %>
+      <%= f.text_field :preparation_time, placeholder: "HH:MM (e.g., 00:45)", required: true%>
+    </div>
+
+    <div class="input-column">
+      <%= f.label :description %>
+      <%= f.text_area :description, placeholder: "Desribe your recipe", required: true%>
+    </div>
+
+    <%= f.submit 'Create Recipe', class: "create" %>
+  <% end %>
+</section>
