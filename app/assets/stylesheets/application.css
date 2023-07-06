@@ -148,12 +148,6 @@ body {
   width: 65%;
 }
 
-.create-button:hover,
-.delete-button:hover {
-  background: #432e34;
-  color: #faf4f7;
-}
-
 .create-button,
 .delete-button {
   border: none;
@@ -173,6 +167,12 @@ body {
   -moz-transition: all 300ms ease-in-out;
   -ms-transition: all 300ms ease-in-out;
   -o-transition: all 300ms ease-in-out;
+}
+
+.create-button:hover,
+.delete-button:hover {
+  background: #432e34;
+  color: #faf4f7;
 }
 
 .create {
