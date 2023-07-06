@@ -139,6 +139,11 @@ You can deploy this project using:
 - GitHub: [@githubhandle](https://github.com/Munyabelden/)
 - Twitter: [@twitterhandle](https://twitter.com/munyaradzi045)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/munyaradzi-mugauri-828a7b24a/)
+
+👤 **Fahim Khan**:
+
+- GitHub: [Fahim-Khan-P](https://github.com/Fahim-Khan-P/)
+- LinkedIn: [Fahim Khan](https://www.linkedin.com/in/fahimkhan-p/)
   
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -162,7 +167,7 @@ Feel free to check the [issues page](https://github.com/Munyabelden/Rails_Capsto
 If you like this project feel free to give it a star
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Ruby on Rails team and Microverse
+I would like to thank the Ruby on Rails team and Microverse
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
