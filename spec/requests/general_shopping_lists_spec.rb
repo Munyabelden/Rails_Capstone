@@ -5,8 +5,8 @@ RSpec.describe GeneralShoppingListsController, type: :controller do
 
   describe "GET #index" do
     let(:user) { User.create(name: "John Doe", email: "john@example.com", password: "password") }
-    let(:food1) { Food.create(name: "Cheese", price: "5.99", user: user) }
-    let(:food2) { Food.create(name: "Bread", price: "5.99", user: user) }
+    let!(:food1) { Food.create(name: "Cheese", price: "5.99", user: user) }
+    let!(:food2) { Food.create(name: "Bread", price: "5.99", user: user) }
 
     before do
       sign_in(user)
@@ -14,7 +14,8 @@ RSpec.describe GeneralShoppingListsController, type: :controller do
     end
 
     it "assigns the user's foods without recipe_foods to @food" do
-      expect(assigns(:food)).to eq([food1, food2])
+      expected_foods = [food1, food2].sort_by(&:id)
+      expect(assigns(:food)).to eq(expected_foods)
     end
 
     it "renders the index template" do

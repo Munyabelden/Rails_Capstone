@@ -1,37 +1,52 @@
 require 'rails_helper'
+require 'capybara/rails'
 
-RSpec.feature 'Foods index', type: :feature do
-  let(:user) { FactoryBot.create(:user) }
+RSpec.feature "User Recipes", type: :feature do
+  include Devise::Test::IntegrationHelpers
+  
+  let(:user) { User.create(name: "John Doe", email: "john@example.com", password: "password") }
+
   before do
-    ActionMailer::Base.deliveries.clear
-    user.confirmation_token = Devise.token_generator.generate(User, :confirmation_token)
-    user.confirmed_at = Time.current
-    user.save
+    Recipe.create(name: "Pasta Carbonara", preparation_time: "00:15", cooking_time: "00:20", description: "A delicious pasta dish.", user: user)
+    Recipe.create(name: "Banana bread", preparation_time: "00:15", cooking_time: "00:20", description: "A delicious bread dish.", user: user)
+  end
+
+  scenario "User views the list of user's recipes" do
     sign_in user
-    FactoryBot.create_list(:food, 3, user:)
-    visit foods_path
+    visit recipes_path
+
+    expect(page).to have_selector("h1.title", text: "#{user.name}'s Recipes")
+    expect(page).to have_selector(".recipe-list")
   end
-  scenario 'displays a list of foods' do
-    expect(page).to have_content 'List of foods'
-    expect(page).to have_link 'Add Food'
-    expect(page).to have_selector 'table tbody tr', count: 3
+
+  scenario "User sees the correct number of recipes" do
+    sign_in user
+    visit recipes_path
+
+    expect(page).to have_selector(".recipe", count: 2)
   end
-  scenario 'allows user to delete a food' do
-    click_on 'Delete', match: :first
-    expect(page).to have_selector 'table tbody tr', count: 2
+
+  scenario "User sees the recipe names and descriptions" do
+    sign_in user
+    visit recipes_path
+
+    expect(page).to have_content("Pasta Carbonara")
+    expect(page).to have_content("A delicious pasta dish.")
+    expect(page).to have_content("Banana bread")
+    expect(page).to have_content("A delicious bread dish.")
   end
-  scenario 'user can add a new food' do
-    click_on 'Add Food'
-    expect(page).to have_current_path(new_food_path)
+
+  scenario "User sees the delete buttons" do
+    sign_in user
+    visit recipes_path
+
+    expect(page).to have_selector(".delete-button", count: 2)
   end
-  scenario 'allows user to add a food' do
-    click_on 'Add Food'
-    fill_in 'Name', with: 'Fahim Khan'
-    fill_in 'Measurement unit', with: 'Pound'
-    fill_in 'Price', with: 100.00
-    fill_in 'Quantity', with: 100
-    click_on 'Save Food'
-    expect(page).to have_content 'Fahim Khan'
-    expect(page).to have_selector 'table tbody tr', count: 4
+
+  scenario "User sees the 'Create New Recipe' link" do
+    sign_in user
+    visit recipes_path
+
+    expect(page).to have_link("Create New Recipe", href: new_recipe_path)
   end
 end
