@@ -155,6 +155,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   padding: 20px;
+  margin-block: 20px;
   background: #f2eae8;
   color: #2d2724;
   border-radius: 10px;
@@ -265,6 +266,10 @@ textarea {
 .food-table tr td,
 .food-table tr th {
   padding: 9px;
+}
+
+tr {
+  border: 1.75px solid rgb(45, 39, 36);
 }
 
 .food-table tr:nth-child(even) {
