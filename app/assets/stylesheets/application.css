@@ -81,6 +81,7 @@ li {
 
 tr:nth-child(even) {
   background: rgb(199, 199, 199);
+  border: 1.75px solid rgb(45, 39, 36);
 }
 
 .add-food-title {
@@ -266,10 +267,6 @@ textarea {
 .food-table tr td,
 .food-table tr th {
   padding: 9px;
-}
-
-tr {
-  border: 1.75px solid rgb(45, 39, 36);
 }
 
 .food-table tr:nth-child(even) {
