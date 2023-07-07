@@ -14,13 +14,13 @@
         </tr>
       </thead>
       <tbody>
-      <% @food.each do |food| %>
-        <tr>
-          <td class="table-cell"><%= food.name %></td>
-          <td class="table-cell"><%= food.quantity %> <%= food.measurement_unit  %></td>
-          <td class="table-cell">$<%= food.price %></td>
-        </tr>
-      <% end %>
+        <% @shopping_list.each do |food| %>
+          <tr>
+            <td class="table-cell"><%= food[:name] %></td>
+            <td class="table-cell"><%= food[:quantity] %> <%= food[:measurement_unit] %></td>
+            <td class="table-cell">$<%= food[:price] %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
