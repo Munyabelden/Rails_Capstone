@@ -1,15 +1,299 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+.food-table {
+  margin-top: 20px;
+}
+
+.add-food {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.add-food-link {
+  margin-top: 10px;
+  padding: 6px 12px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border: 2px solid black;
+  box-shadow: 6px 6px 2px 1px black;
+}
+
+.table-container {
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 100%;
+  margin: 1rem auto;
+  background-color: #fff;
+  border-radius: 0.25rem;
+}
+
+.table-header {
+  background-color: #646464;
+}
+
+.table-cell {
+  border: 2px solid black;
+  padding: 0.75rem;
+}
+
+.delete-button {
+  color: rgba(0, 0, 255, 0.711);
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.create-button,
+.delete-button {
+  border: none;
+  background: transparent;
+  padding: 7px 12px;
+  color: #432e34;
+  border-bottom: 1.5px solid #432e34;
+  width: fit-content;
+  margin-top: 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+}
+
+.delete-button:hover {
+  color: #dc3545;
+  transition: all 0.2s;
+}
+
+tr:nth-child(even) {
+  background: rgb(199, 199, 199);
+  border: 1.75px solid rgb(45, 39, 36);
+}
+
+.add-food-title {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.new-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  width: 30em;
+  margin: 50px auto;
+}
+
+.form-group {
+  margin-top: 5px;
+  width: 24em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 1px;
+}
+
+.button {
+  border-radius: 5px;
+  background-color: rgb(61, 61, 61);
+  border: 0;
+  color: white;
+  height: 40px;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 30px;
+  width: 50%;
+}
+
+a {
+  text-decoration: none;
+  color: #432e34;
+}
+
+body {
+  background: #faf4f7;
+}
+
+.user-recipes,
+.recipe-details {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 15%;
+}
+
+.title,
+.recipe-name {
+  text-align: center;
+  font-size: 24px;
+  color: #190b12;
+  margin-block: 30px;
+}
+
+.recipe-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.recipe {
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  margin-block: 20px;
+  background: #f2eae8;
+  color: #2d2724;
+  border-radius: 10px;
+  width: 100%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.recipe .describe {
+  width: 65%;
+}
+
+.create-button:hover,
+.delete-button:hover {
+  background: #432e34;
+  color: #faf4f7;
+}
+
+.create {
+  background: #432e34;
+  color: #faf4f7;
+  padding: 7px 12px;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.new-recipe {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.input-column {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+select {
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(67, 46, 52);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+textarea {
+  width: 250px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(67, 46, 52);
+  height: 70px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.recipe-details span {
+  margin-block: 10px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.publicize {
+  position: absolute;
+  left: 70%;
+  margin-top: -100px;
+  text-align: end;
+  justify-content: flex-end;
+  align-self: flex-end;
+  border: 1.75px solid rgb(45, 39, 36);
+  border-radius: 3px;
+  width: fit-content;
+  cursor: pointer;
+  padding: 8px 14px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.shop-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+}
+
+.shop-hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 3rem;
+}
+
+.food-table tr td,
+.food-table tr th {
+  padding: 9px;
+}
+
+.food-table tr:nth-child(even) {
+  background: rgb(100, 100, 100);
+}
+
+.food-table tr:nth-child(odd) {
+  background: rgb(255, 255, 255);
+}
+
+.show-button {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 10px;
+}
+
+.food-button,
+.generate-food {
+  border: 1.5px solid #432e34;
+  width: fit-content;
+  padding: 8px 13px;
+  cursor: pointer;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
