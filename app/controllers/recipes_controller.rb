@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.public = !@recipe.public
     if @recipe.save
-      redirect_to @recipe, notice: 'Recipe public status has been updated.'
+      redirect_to public_index_path, notice: 'Recipe public status has been updated.'
     else
       redirect_to @recipe, alert: 'Failed to update recipe.'
     end

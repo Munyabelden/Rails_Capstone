@@ -1,3 +1,13 @@
+<div class="about-recipe">
+  <div>
+    <h2 class="recipe-name"><%= @recipe.name %></h2>
+    <p>
+      Discover a World of Flavors: Our platform is your gateway to culinary creativity. With us, you can seamlessly craft, archive, and spread your exceptional recipes, making every meal a masterpiece.
+    </p>
+    <span>Preparation time: <%= format_time(@recipe.preparation_time) %></span>,
+    <span>Cooking time: <%= format_time(@recipe.cooking_time) %></span>
+  </div>
+</div>
 <div class="recipe-details">
   <h2 class="recipe-name"><%= @recipe.name %></h2>
   <span>Preparation time: <%= format_time(@recipe.preparation_time) %></span>
