@@ -1,12 +1,19 @@
-<div class="recipe-details">
-  <h2 class="recipe-name"><%= @recipe.name %></h2>
-  <span>Preparation time: <%= format_time(@recipe.preparation_time) %></span>
-  <span>Cooking time: <%= format_time(@recipe.cooking_time) %></span>
-  <% if current_user == @recipe.user %>
-    <%= form_with(model: @recipe, url: publicize_recipe_path(@recipe), method: :patch) do |f| %>
-      <%= f.submit 'Make Public', class: "publicize" %>
+<div class="about-recipe">
+  <div>
+    <h2 class="recipe-name"><%= @recipe.name %></h2>
+    <p>
+      Discover a World of Flavors: Our platform is your gateway to culinary creativity. With us, you can seamlessly craft, archive, and spread your exceptional recipes, making every meal a masterpiece.
+    </p>
+    <span>Preparation time: <%= format_time(@recipe.preparation_time) %></span>,
+    <span>Cooking time: <%= format_time(@recipe.cooking_time) %></span>
+    <% if current_user == @recipe.user %>
+      <%= form_with(model: @recipe, url: publicize_recipe_path(@recipe), method: :patch) do |f| %>
+        <%= f.submit 'Make Public', class: "publicize" %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+</div>
+<div class="recipe-details">
   <div class="show-button">
     <%= link_to "Add Ingredient", new_recipe_recipe_food_path(recipe_id: @recipe.id), class: "food-button add-food" %>
     <%= link_to "Generate shopping list", general_shopping_lists_index_path(recipe_id: @recipe.id), class: "generate-food" %>
@@ -22,7 +29,7 @@
     </thead>
     <tbody>
       <% @recipe_foods.each.with_index do |food, index| %>
-        <tr class="<%= index.even? ? 'even-row' : '' %>">
+        <tr class="<%= index.even? ? 'odd-row' : '' %>">
           <td><%= food.food.name %></td>
           <td><%= food.food.measurement_unit %></td>
           <td>$<%= food.food.price %></td>

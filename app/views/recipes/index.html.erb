@@ -1,6 +1,12 @@
-<section class="user-recipes">
-  <h1 class="title"><%= @current_user&.name %>'s Recipes</h1>
+<section class="recipes-header">
+  <div>
+    <h1 class="title"><%= @current_user&.name %>'s Recipes</h1>
+    <p>Unleash Your Inner Chef: Delight in the process of curating your recipes using our intuitive interface. Effortlessly jot down ingredients, measurements, and step-by-step instructions, all while our platform elegantly organizes your culinary innovations.</p>
+    <%= link_to 'Create New Recipe', new_recipe_path, class: 'create-button' %>
+  </div>
+</section>
 
+<section class="user-recipes">
   <div class="recipe-list">
     <% @recipes.each do |recipe| %>
       <div class="recipe">
@@ -18,5 +24,4 @@
       </div>
     <% end %>
   </div>
-  <%= link_to 'Create New Recipe', new_recipe_path, class: 'create-button' %>
 </section>
